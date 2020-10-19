@@ -2,36 +2,26 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class ScannerEmployees {
-    private Employee[] employees;
-    private int countOfUsers;
 
-    public ScannerEmployees() {
-        setupCountOfEmployees();
-        scannerEmployees();
-    }
-
-    private void scannerEmployees() {
+    public Employee scan() {
         int index = 0;
-        employees = new Employee[countOfUsers];
+        Employee employee = new Employee();
         Scanner scanner = new Scanner(System.in);
         scanner.useLocale(Locale.GERMAN);
         System.out.println("Uwaga! Użyj przecinka jako separatora przy wprowadzaniu wynagrodzenia!");
-        while (index < employees.length) {
-            employees[index] = new Employee();
-            System.out.printf("Podaj dane dla pracownika %d/%d:\n", (index + 1), employees.length);
+            System.out.println("Podaj dane pracownika.");
             System.out.print("Podaj imię: ");
-            employees[index].setName(scanner.next());
+            employee.setName(scanner.next());
             System.out.print("Podaj nazwisko: ");
-            employees[index].setLastName(scanner.next());
+            employee.setLastName(scanner.next());
             System.out.print("Podaj wynagrodzenie: ");
-            employees[index].setSalary(scanner.nextDouble());
-            index++;
-        }
+            employee.setSalary(scanner.nextDouble());
+            return employee;
     }
 
-    private void setupCountOfEmployees() {
+    public int setupCountOfEmployees() {
         boolean status = false;
-        countOfUsers = 0;
+        int countOfUsers = 0;
         System.out.print("Podaj liczbę pracowników do uzupełnienia. Wartość całkowitą pomiędzy 2 a 5: ");
         Scanner scanner = new Scanner(System.in);
         while (!status) {
@@ -42,9 +32,9 @@ public class ScannerEmployees {
                 System.out.print("Podana wartość jest poza zadanego zakresu. Popraw wartość całkowitą pomiędzy 2 a 5: ");
             }
         }
+        return countOfUsers;
     }
 
-    public Employee[] getEmployees() {
-        return employees;
-    }
+
+
 }
