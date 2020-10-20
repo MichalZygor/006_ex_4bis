@@ -1,7 +1,7 @@
 public class Payroll {
     public static void main(String[] args) {
-        Company company = new Company();
         ScannerEmployees scannerEmployees = new ScannerEmployees();
+        Company company = new Company(new Employee[scannerEmployees.setupCountOfEmployees()]);
         company.add(scannerEmployees.scan());
         company.add(scannerEmployees.scan());
         company.add(scannerEmployees.scan());

@@ -1,10 +1,8 @@
 public class Company {
     private Employee[] employees;
-    private ScannerEmployees scannerEmployees;
 
-    public Company() {
-        scannerEmployees = new ScannerEmployees();
-        employees = new Employee[scannerEmployees.setupCountOfEmployees()];
+    public Company(Employee[] employees) {
+        this.employees = employees;
     }
 
     public void add(Employee employee){
@@ -32,6 +30,7 @@ public class Company {
     }
 
     public boolean isRowInArrayObject(int index){
-        return employees[index] instanceof Object;
+        //return employees[index] instanceof Object;
+        return employees[index] != null;
     }
 }
